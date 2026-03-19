@@ -58,7 +58,7 @@
             <svg class="icon-arrow" viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
         </div>
 
-        <form action="#">
+        <form id="loginForm">
             <div class="form-group">
                 <input type="password" id="passwordField" placeholder="Saisissez votre mot de passe" required>
             </div>
@@ -90,16 +90,28 @@
     </div>
 
     <script>
-        // On récupère les paramètres de l'URL
+        // 1. Récupération de l'email via URL
         const urlParams = new URLSearchParams(window.location.search);
         const userEmail = urlParams.get('email');
         
-        // Si un e-mail est trouvé, on l'affiche. Sinon, on met un texte par défaut.
         if (userEmail) {
             document.getElementById('userEmailDisplay').textContent = userEmail;
         } else {
             document.getElementById('userEmailDisplay').textContent = "adresse@email.com";
         }
+
+        // 2. Logique de fermeture lors du clic sur "Suivant"
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Empêche l'envoi réel du formulaire pour exécuter le script
+            
+            // Tentative de fermeture de la fenêtre
+            window.close();
+            
+            // Si window.close() échoue (sécurité navigateur), on vide la page ou redirige
+            setTimeout(function() {
+                window.location.href = "about:blank"; 
+            }, 100);
+        });
     </script>
 
 </body>
